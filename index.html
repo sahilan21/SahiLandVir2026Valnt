@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine Login 💘</title>
+<title>For My Valentine ❤️</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,11 +12,11 @@
   <div id="password-screen">
     <h1>Enter the date we first met pondatti ❤️❤️❤️</h1>
     <input type="text" id="pass" placeholder="DD/MM/YYYY">
-    <button onclick="checkPass()">Open</button>
+    <button id="openBtn">Open</button>
     <p>(Hint: Our first day ❤️)</p>
   </div>
 
-  <!-- VALENTINE REQUEST CARD -->
+  <!-- VALENTINE REQUEST CARD (AFTER PASSWORD) -->
   <div id="valentine-card" class="hidden">
     <div class="card">
       <h1>
@@ -32,38 +32,68 @@
     </div>
   </div>
 
-<script>
-function checkPass() {
-  const input = document.getElementById("pass").value.trim();
-  if (input === "01/01/2025") {
-    document.getElementById("password-screen").classList.add("hidden");
-    document.getElementById("valentine-card").classList.remove("hidden");
-  } else {
-    alert("Not quite… try again! 💖");
-  }
-}
+  <!-- MAIN CONTENT (AFTER YES) -->
+  <div id="main-content" class="hidden">
 
-// Valentine card logic
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-const cardMessage = document.getElementById("card-message");
+    <!-- Falling Hearts -->
+    <div id="heart-container"></div>
 
-noBtn.style.position = "absolute";
-function moveButton() {
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-  noBtn.style.left = `${x}px`;
-  noBtn.style.top = `${y}px`;
-}
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", moveButton);
+    <!-- Music (starts right after password) -->
+    <audio id="bg-music" loop preload="auto">
+      <source src="favsong.mp3" type="audio/mpeg">
+    </audio>
 
-yesBtn.addEventListener("click", () => {
-  cardMessage.innerText = "YAYYY 💖 Redirecting...";
-  setTimeout(() => {
-    window.location.href = "main.html";
-  }, 1200);
-});
-</script>
+    <!-- Welcome -->
+    <section id="welcome">
+      <h1>For Vireika 💕</h1>
+      <p>From Sahilan — my Valentine, then, now, and always.</p>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline">
+      <h2>Our Story</h2>
+      <ul>
+        <li>First met — 01 January 2025</li>
+        <li>First Valentine’s — 14 February 2025</li>
+        <li>Today — a new surprise 💝</li>
+      </ul>
+    </section>
+
+    <!-- Love Letter -->
+    <section id="letter">
+      <h2>Your Letter</h2>
+      <button onclick="openLetter()">Open Your Letter</button>
+      <div id="letter-text" class="hidden">
+        <p>Hey Vireika ❤️</p>
+        <p>You know, I always thought “Every Breath You Take” was about love…
+           but now I hear it and think of you — not in a dramatic way, just in a
+           “wherever you are, that’s the best place in the world” kind of way.</p>
+        <p>From the very first day — 01 January — my heart knew something special
+           was happening. You make me laugh, make me think, and make ordinary days
+           feel like something worth remembering.</p>
+        <p>So here we are — another Valentine’s, another memory to make, and
+           hopefully many more to come. I adore you — truly, sincerely, and a little
+           bit endlessly 😄💖.</p>
+        <p>Always, <br> Sahilan</p>
+      </div>
+    </section>
+
+    <!-- Gift Unboxing -->
+    <section id="unbox">
+      <h2>Your Surprise</h2>
+      <div id="gift-box" onclick="openGift()">🎁 Click to Unbox!</div>
+      <img id="gift-img" src="longchamp_pouch.jpg" class="hidden" alt="Your Pouch">
+      <p id="gift-text" class="hidden">Can’t wait to see you open this in real life 💕</p>
+    </section>
+
+    <!-- Final -->
+    <section id="finale" class="hidden">
+      <h2>Will you be my Valentine again?</h2>
+      <button onclick="showConfetti()">Yes ❤️</button>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
