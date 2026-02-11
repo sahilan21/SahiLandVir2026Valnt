@@ -1,0 +1,36 @@
+body {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background: #fff0f6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
+#password-screen {
+  margin-top: 100px;
+}
+
+#main-content {
+  padding: 30px;
+}
+
+section {
+  margin: 40px 0;
+}
+
+#gift-box {
+  font-size: 50px;
+  cursor: pointer;
+}
+
+#gift-img {
+  width: 250px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
