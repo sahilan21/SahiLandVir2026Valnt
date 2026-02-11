@@ -10,38 +10,17 @@
 
   <!-- PASSWORD LOCK -->
   <div id="password-screen">
-    <h1>Enter the date we first met pondatti ❤️❤️❤️</h1>
+    <h1>Enter the date we first met</h1>
     <input type="text" id="pass" placeholder="DD/MM/YYYY">
-    <button id="openBtn">Open</button>
+    <button onclick="checkPass()">Open</button>
     <p>(Hint: Our first day ❤️)</p>
   </div>
 
-  <!-- VALENTINE REQUEST CARD (AFTER PASSWORD) -->
-  <div id="valentine-card" class="hidden">
-    <div class="card">
-      <h1>
-        Hey <span class="name">Vireika Shanker Raj Ayanger</span> 💖
-        <br><br>
-        Will you be my Valentine?
-      </h1>
-
-      <button id="yesBtn">Yes 💘</button>
-      <button id="noBtn">No 😭</button>
-
-      <div id="card-message"></div>
-    </div>
-  </div>
-
-  <!-- MAIN CONTENT (AFTER YES) -->
+  <!-- MAIN CONTENT -->
   <div id="main-content" class="hidden">
 
     <!-- Falling Hearts -->
     <div id="heart-container"></div>
-
-    <!-- Music (starts right after password) -->
-    <audio id="bg-music" loop preload="auto">
-      <source src="favsong.mp3" type="audio/mpeg">
-    </audio>
 
     <!-- Welcome -->
     <section id="welcome">
@@ -59,20 +38,25 @@
       </ul>
     </section>
 
+    <!-- Music (Autoplay) -->
+    <audio id="bg-music" loop>
+      <source src="favsong.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Love Letter -->
     <section id="letter">
       <h2>Your Letter</h2>
       <button onclick="openLetter()">Open Your Letter</button>
       <div id="letter-text" class="hidden">
         <p>Hey Vireika ❤️</p>
-        <p>You know, I always thought “Every Breath You Take” was about love…
-           but now I hear it and think of you — not in a dramatic way, just in a
+        <p>You know, I always thought “Every Breath You Take” was about love…  
+           but now I hear it and think of you — not in a dramatic way, just in a  
            “wherever you are, that’s the best place in the world” kind of way.</p>
-        <p>From the very first day — 01 January — my heart knew something special
-           was happening. You make me laugh, make me think, and make ordinary days
+        <p>From the very first day — 01 January — my heart knew something special  
+           was happening. You make me laugh, make me think, and make ordinary days  
            feel like something worth remembering.</p>
-        <p>So here we are — another Valentine’s, another memory to make, and
-           hopefully many more to come. I adore you — truly, sincerely, and a little
+        <p>So here we are — another Valentine’s, another memory to make, and  
+           hopefully many more to come. I adore you — truly, sincerely, and a little  
            bit endlessly 😄💖.</p>
         <p>Always, <br> Sahilan</p>
       </div>
