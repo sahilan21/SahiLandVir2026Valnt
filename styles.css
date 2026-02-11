@@ -55,3 +55,34 @@ section {
   0% { transform: translateY(-10px) rotate(0deg); }
   100% { transform: translateY(110vh) rotate(360deg); }
 }
+
+/* Valentine request card */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  width: min(500px, 90vw);
+}
+.name {
+  color: hotpink;
+  font-weight: bold;
+}
+button {
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: bold;
+}
+#yesBtn {
+  background: hotpink;
+  color: white;
+}
+#noBtn {
+  background: lightgray;
+  position: absolute;
+}
