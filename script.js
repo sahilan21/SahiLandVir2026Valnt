@@ -1,78 +1,26 @@
-const openBtn = document.getElementById("openBtn");
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-const cardMessage = document.getElementById("card-message");
-
-openBtn.addEventListener("click", checkPass);
-
-// PASSWORD CHECK (start music immediately on success)
+// PASSWORD CHECK
 function checkPass() {
   const input = document.getElementById("pass").value.trim();
-
   if (input === "01/01/2025") {
     document.getElementById("password-screen").classList.add("hidden");
-    document.getElementById("valentine-card").classList.remove("hidden");
-
-    // IMPORTANT: Play music here (same click gesture)
+    document.getElementById("main-content").classList.remove("hidden");
     startMusic();
+    createHearts();
   } else {
     alert("Not quite… try again! 💖");
   }
 }
 
-// AUTOPLAY MUSIC (reliable: happens on button click)
+// AUTOPLAY MUSIC
 function startMusic() {
   const music = document.getElementById("bg-music");
-
-  // force reload in case browser cached a prior state
-  music.load();
-
-  music.play().catch(() => {
-    // fallback prompt (some browsers still block if muted policy etc.)
-    const notice = document.createElement("p");
-    notice.id = "play-notice";
-    notice.innerText = "Tap anywhere to start the music ❤️";
-    document.body.appendChild(notice);
-
-    document.body.addEventListener("click", () => {
-      music.play();
-      notice.remove();
-    }, { once: true });
-  });
+  music.play().catch(() => console.log("Autoplay blocked; try clicking to start music."));
 }
-
-// Valentine card logic: NO runs away
-noBtn.style.position = "absolute";
-
-function moveButton() {
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-  noBtn.style.left = `${x}px`;
-  noBtn.style.top = `${y}px`;
-}
-
-// initial placement so it’s not overlapping
-moveButton();
-
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", moveButton);
-
-// YES shows main content and starts hearts
-yesBtn.addEventListener("click", () => {
-  cardMessage.innerHTML = "YAYYY 💖💖";
-
-  document.getElementById("valentine-card").classList.add("hidden");
-  document.getElementById("main-content").classList.remove("hidden");
-
-  createHearts();
-});
 
 // CREATE FALLING HEARTS
 function createHearts() {
   const container = document.getElementById("heart-container");
-  container.innerHTML = "";
-
-  for (let i = 0; i < 30; i++) {
+  for(let i=0; i<30; i++) {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.style.left = Math.random() * 100 + "vw";
